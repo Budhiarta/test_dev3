@@ -1,5 +1,7 @@
 
-const {Airport_List,User,Booking,Ticket,Airlines, Price_List} =require("../models");
+const {Airport_List,User,Booking,Ticket, Price_List} =require("../models");
+const bycript = require('bcryptjs')
+const salt =10
 
 function showUsers(req,res){
     User.findAll().then(user=>{
@@ -11,27 +13,81 @@ function showUsers(req,res){
     })
 }
 
-function RegisterUser(req,res){
+async function RegisterUser(req,res){
+    const Encrypted_Password = await encryptPassword(req.body.password)
+
     const body = {
         Name: req.body.Name,
-        Encrypted_Password: req.body.Encrypted_Password,
+        Encrypted_Password: Encrypted_Password,
         Role : 0,
-        Birth_Date: req.body.Birth_Date,
         Email : req.body.Email,
-        Address: req.body.Address,
-        Phone_Number: req.body.Phone_Number,
+        Foto : "",
+        Address: "",
+        Phone_Number: ""
     }
 
     User.create(body).then(user => {
-        res.status(200).json({ data: user })
-        res.send("Login Berhasil!")
+         return res.status(200).json({ 
+            data: user,
+            status:"Berhasil"
+        })
     }).catch(err => {
         res.status(500).json(err)
     })
 }
 
-function Login(req,res){
+async function Login(req,res){
+    const password = req.body.password
+    const user = await User.findOne({
+        where: { Email : req.body.Email },
+      });
+  
+      if (!user) {
+        res.status(404).json({ message: "Email tidak ditemukan" });
+        return;
+      }
+  
+      const isPasswordCorrect = await checkPassword(
+        user.Encrypted_Password,
+        password
+      );
+  
+      if (!isPasswordCorrect) {
+        res.status(401).json({ message: "Password salah!" });
+        return;
+      }
+      res.status(201).json({
+        data : user
+      })
+  
 
+}
+
+function encryptPassword(password){
+    return new Promise((resolve, reject)=>{
+        bycript.hash(password,salt, (err, encryptPassword)=>{
+            if(!!err){
+                reject(err)
+                return
+            }
+            resolve(encryptPassword);
+        })
+    })
+}
+
+function checkPassword(encryptPassword,password){
+    return new Promise((resolve, reject)=>{
+        bycript.compare(
+            password,encryptPassword, (err, isPasswordCorrect)=>{
+                if(!!err){
+                    reject(err)
+                    return
+                }
+                
+                resolve(isPasswordCorrect)
+            }
+        )
+    })
 }
 
 function SearchTicket(req,res){
