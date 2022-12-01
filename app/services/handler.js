@@ -3,6 +3,12 @@ const {Airport_List,User,Booking,Ticket, Price_List} =require("../models");
 const bycript = require('bcryptjs')
 const salt =10
 
+const root = (req, res) => {
+    res.status(200).json({
+        data: "Berhasil Terhubung"
+    })
+}
+
 function showUsers(req,res){
     User.findAll().then(user=>{
         res.status(200).json({
@@ -141,5 +147,12 @@ function ShowPriceList(req,res){
 }
 
 module.exports={
-    showUsers,RegisterUser, Login,SearchTicket,BookingTicket,AddPriceList,ShowPriceList
+    root,
+    showUsers,
+    RegisterUser,
+    Login,
+    SearchTicket,
+    BookingTicket,
+    AddPriceList,
+    ShowPriceList
 }
