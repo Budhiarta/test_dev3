@@ -137,10 +137,10 @@ module.exports = {
 
             const user = await userService.findByPk(tokenPayload.id);
             console.log(user)
-            if(user.Role !== "Admin"){
+            if(user.Role !== 'Admin'){
                 res.status(401).json({
                     status: "FAIL",
-                    message: "Forbidden"
+                    message: "Forbidden! Only Admin can access this route"
                 })
             }else{
                 req.user = user

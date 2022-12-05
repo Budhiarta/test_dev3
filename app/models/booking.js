@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id',
         as: 'users'
       }),
-      this.belongsTo(models.Price_List, {
-        foreignKey: 'price_id',
-        as: 'price_Lists'
+      this.belongsTo(models.Schedule, {
+        foreignKey: 'schedule_id',
+        as: 'schedules'
       })
     }
   }
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     Origin_Airport: DataTypes.STRING,
     Destination_Airport: DataTypes.STRING,
     Ticket_Date: DataTypes.DATE,
-    Price_id: DataTypes.INTEGER,
+    Schedule_id: DataTypes.INTEGER,
     Passenger_Type: DataTypes.STRING
   }, {
     sequelize,

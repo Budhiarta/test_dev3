@@ -27,7 +27,7 @@ module.exports = {
       Ticket_Date: {
         type: Sequelize.DATE
       },
-      Price_id: {
+      Schedule_id: {
         type: Sequelize.INTEGER
       },
       Passenger_Type: {

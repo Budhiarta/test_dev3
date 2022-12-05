@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Price_Lists', {
+    await queryInterface.createTable('Schedules', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,8 +18,8 @@ module.exports = {
       Plane_class: {
         type: Sequelize.STRING
       },
-      Airline_id: {
-        type: Sequelize.INTEGER
+      Airline_Name: {
+        type: Sequelize.STRING
       },
       Price: {
         type: Sequelize.INTEGER
@@ -44,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Price_Lists');
+    await queryInterface.dropTable('Schedules');
   }
 };
