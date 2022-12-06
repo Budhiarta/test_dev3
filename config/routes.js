@@ -41,7 +41,7 @@ apiRouter.get('/History')
 
 //yang bisa diakses Admin//
 apiRouter.get('/user', controllers.api.v1.authController.validationAdmin, controllers.api.v1.authController.showUsers)
-apiRouter.get('/Schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.ShowTicket)
+apiRouter.get('/Schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.ShowSchedule)
 apiRouter.post('/Add-Schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.AddSchedule)
 apiRouter.put('/Edit-Schedule/:id', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.updateSchedules)
 apiRouter.delete('/delete-Schedule/:id',controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.deleteSchedule)

@@ -12,13 +12,13 @@ module.exports={
             flight_Date : reqArgs.flight_Date
         }})
     },
-    findAll(){
+    findAllData(){
         return Schedule.findAll()
     },
     UpdateSchedule(id,reqArgs){
         return Schedule.update(reqArgs,{where:{id}})
     },
-    DeleteSchedule(id){
-        return Schedule.destroy(id)
+    Delete_Schedule(id){
+        return Schedule.destroy({where:{id}})
     }
 }
