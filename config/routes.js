@@ -1,5 +1,4 @@
 const express = require("express");
-const handler = require("../app/services/handler");
 const controllers = require("../app/controllers");
 const apiRouter = express.Router();
 const multer = require('multer');
@@ -22,7 +21,6 @@ const storage = multer.diskStorage({
 apiRouter.use(express.json());
 
 //Umum access
-apiRouter.get('/', handler.root)
 apiRouter.post('/register', controllers.api.v1.authController.RegisterUser)
 apiRouter.post('/login', controllers.api.v1.authController.login)
 apiRouter.put('/user/:id/update', multer({storage:storage}).single("photo_profile"), controllers.api.v1.authController.updateUser)
@@ -34,7 +32,7 @@ apiRouter.get('/user/:id', controllers.api.v1.authController.show)
 
 //yang bisa diakses user//
 apiRouter.get('/search-ticket', controllers.api.v1.schedController.filterSchedule),
-apiRouter.post('/Booking-Ticket', handler.BookingTicket),
+apiRouter.post('/Booking-Ticket'),
 apiRouter.post('/Ticket')
 apiRouter.get('/Ticket')
 apiRouter.get('/History')
