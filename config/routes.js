@@ -32,8 +32,8 @@ apiRouter.get('/user/:id', controllers.api.v1.authController.show)
 
 //yang bisa diakses user//
 apiRouter.get('/search-ticket', controllers.api.v1.schedController.filterSchedule),
-apiRouter.post('/Booking-Ticket'),
-apiRouter.post('/Ticket')
+apiRouter.post('/Booking-Ticket', controllers.api.v1.ticketController.CreateTicket),
+apiRouter.post('/Ticket', controllers.api.v1.ticketController.DisplayTicket)
 apiRouter.get('/Ticket')
 apiRouter.get('/History')
 

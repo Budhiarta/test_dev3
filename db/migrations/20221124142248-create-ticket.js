@@ -27,8 +27,8 @@ module.exports = {
       flight_Hours: {
         type: Sequelize.TIME
       },
-      Airline_id: {
-        type: Sequelize.INTEGER
+      Airline_Name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
