@@ -32,8 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     Origin_Airport: DataTypes.STRING,
     Destination_Airport: DataTypes.STRING,
     Ticket_Date: DataTypes.DATE,
-    Schedule_id: DataTypes.INTEGER,
-    Passenger_Type: DataTypes.STRING
+    Schedule_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Booking',

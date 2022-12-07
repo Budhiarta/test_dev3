@@ -30,9 +30,6 @@ module.exports = {
       Schedule_id: {
         type: Sequelize.INTEGER
       },
-      Passenger_Type: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

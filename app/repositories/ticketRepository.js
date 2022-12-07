@@ -5,7 +5,7 @@ module.exports={
         return Ticket.create(reqArgs)
     },
     findAll(){
-        return Ticket.findAll
+        return Ticket.findAll()
     },
     DeleteSchedule(id){
         return Ticket.destroy(id)

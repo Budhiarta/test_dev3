@@ -8,7 +8,7 @@ module.exports={
                 Passanger_Name: ticket.Passanger_Name,
                 Booking_id: ticket.Booking_id,
                 Origin_Airport: ticket.Origin_Airport,
-                Destination_Airport: ticketl.Destination_Airport,
+                Destination_Airport: ticket.Destination_Airport,
                 Plane_class: ticket.Plane_class,
                 flight_Hours: ticket.flight_Hours,
                 Airline_Name: ticket.Airline_name
