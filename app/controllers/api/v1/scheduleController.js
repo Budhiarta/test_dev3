@@ -51,7 +51,8 @@ module.exports={
             await scheduleService.FindAllSchedule()
             .then((data)=>{
                 res.status(200).json({
-                    data:data
+                    status: "OK",
+                    data: data
                 })
             })
         }catch(err){

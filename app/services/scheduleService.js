@@ -6,19 +6,25 @@ module.exports={
     },
     async FindAllSchedule(){
         try{
-            const schedule = scheduleRepository.findAllData()
-            return{
-                data : schedule
+            const sched = await scheduleRepository.findAllData();
+            return {
+                Jadwal : sched
             }
         }catch(err){
-            throw err
+            throw err;
         }
     },
     async findschedule(requestBody){
         try{
-            scheduleRepository.findSchedule(requestBody)
-            return{
-                data : data
+            const filter = await scheduleRepository.findSchedule(requestBody)
+            if (filter ==""|| filter == null || filter== undefined ){
+                return{
+                    data : "Tidak ada Schedule yang cocok"
+                }
+            }else{
+                return{
+                    data : filter
+                }
             }
         }catch(err){
             throw err

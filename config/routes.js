@@ -33,7 +33,7 @@ apiRouter.get("/api/v1/whoami",
 apiRouter.get('/user/:id', controllers.api.v1.authController.show)
 
 //yang bisa diakses user//
-apiRouter.get('/Search-ticket', controllers.api.v1.schedController.filterSchedule),
+apiRouter.get('/search-ticket', controllers.api.v1.schedController.filterSchedule),
 apiRouter.post('/Booking-Ticket', handler.BookingTicket),
 apiRouter.post('/Ticket')
 apiRouter.get('/Ticket')
@@ -41,10 +41,10 @@ apiRouter.get('/History')
 
 //yang bisa diakses Admin//
 apiRouter.get('/user', controllers.api.v1.authController.validationAdmin, controllers.api.v1.authController.showUsers)
-apiRouter.get('/Schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.ShowSchedule)
-apiRouter.post('/Add-Schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.AddSchedule)
-apiRouter.put('/Edit-Schedule/:id', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.updateSchedules)
-apiRouter.delete('/delete-Schedule/:id',controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.deleteSchedule)
+apiRouter.get('/schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.ShowSchedule)
+apiRouter.post('/add-schedule', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.AddSchedule)
+apiRouter.put('/edit-schedule/:id', controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.updateSchedules)
+apiRouter.delete('/delete-schedule/:id',controllers.api.v1.authController.validationAdmin, controllers.api.v1.schedController.deleteSchedule)
 
 
 apiRouter.use(controllers.api.main.onLost);

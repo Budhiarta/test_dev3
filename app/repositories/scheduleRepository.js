@@ -8,7 +8,7 @@ module.exports={
         return Schedule.findAll({where: {
             Origin_Airport : reqArgs.Origin_Airport,
             Destination_Airport : reqArgs.Destination_Airport,
-            Plane_Class : reqArgs.Plane_Class,
+            Plane_class : reqArgs.Plane_class,
             flight_Date : reqArgs.flight_Date
         }})
     },
