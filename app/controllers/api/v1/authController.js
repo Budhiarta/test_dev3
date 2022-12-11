@@ -66,7 +66,7 @@ module.exports = {
         res.status(201).json({
             id: user.id,
             Email: user.Email,
-            token,
+            Token : "Bearer " + token,
             createdAt: user.createdAt,
             updatedAt: user.updatedAt
         })

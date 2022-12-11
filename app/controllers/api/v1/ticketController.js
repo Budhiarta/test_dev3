@@ -24,7 +24,7 @@ module.exports={
             await ticketService.FindAllTicket()
             .then((data)=>{
                 res.status(201).json({
-                    data:data
+                    data: data
                 })
             })
         }catch(err){

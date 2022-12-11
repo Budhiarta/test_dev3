@@ -35,7 +35,7 @@ apiRouter.get('/search-ticket', controllers.api.v1.schedController.filterSchedul
 apiRouter.post('/booking-ticket', controllers.api.v1.bookingController.addBooking)
 apiRouter.post('/add-ticket', controllers.api.v1.ticketController.CreateTicket)
 apiRouter.get('/ticket', controllers.api.v1.ticketController.DisplayTicket)
-apiRouter.get('/History')
+apiRouter.get('/history', controllers.api.v1.bookingController.DisplayBooking)
 
 //yang bisa diakses Admin//
 apiRouter.get('/user', controllers.api.v1.authController.validationAdmin, controllers.api.v1.authController.showUsers)

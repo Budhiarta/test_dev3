@@ -1,4 +1,5 @@
 const bookingService = require("../../../services/bookingService")
+const ticketService = require("../../../services/ticketService")
 
 module.exports = {
     async addBooking(req,res){
@@ -18,5 +19,18 @@ module.exports = {
                 error: err
             })
         }
-    }
+    },
+    async DisplayBooking(req,res){
+        try{
+            await bookingService.showBooking()
+            .then((data)=>{
+                res.status(201).json({
+                    data: data
+                })
+            })
+        }catch(err){
+            throw err
+        }
+    },
+
 }

@@ -4,14 +4,15 @@ module.exports={
     createTicket(requestBody){
         return ticketRepository.createTicket(requestBody)
     },
-    FindAllTicket(){
-        ticketRepository.findAll().then((result)=>{
-            return {
-                data : result
+    async FindAllTicket(){
+        try{
+            const ticket = await ticketRepository.findAll()
+            return{
+                tiket : ticket
             }
-        }).catch(err=>{
+        }catch(err){
             throw err
-        })
+        }
     },
     DeleteTicket(id){
         return ticketRepository.Deleteticket(id)
