@@ -12,7 +12,7 @@ module.exports = {
       Passanger_Name: {
         type: Sequelize.STRING
       },
-      Booking_id: {
+      booking_id: {
         type: Sequelize.INTEGER
       },
       Origin_Airport: {

@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ticket.init({
     Passanger_Name: DataTypes.STRING,
-    Booking_id: DataTypes.INTEGER,
+    booking_id: DataTypes.INTEGER,
     Origin_Airport: DataTypes.STRING,
     Destination_Airport: DataTypes.STRING,
     Plane_class: DataTypes.STRING,

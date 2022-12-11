@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      User_id: {
+      user_id: {
         type: Sequelize.INTEGER
       },
       Total_Passenger: {
@@ -27,7 +27,7 @@ module.exports = {
       Ticket_Date: {
         type: Sequelize.DATE
       },
-      Schedule_id: {
+      schedule_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {

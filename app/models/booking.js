@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.Ticket,{
-        foreignKey:'ticket_id',
+        foreignKey:'booking_id',
         as: 'tickets'
       }),
       this.belongsTo(models.User, {
@@ -26,13 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Booking.init({
-    User_id: DataTypes.INTEGER,
+    user_id: DataTypes.INTEGER,
     Total_Passenger: DataTypes.INTEGER,
     Plane_Class: DataTypes.STRING,
     Origin_Airport: DataTypes.STRING,
     Destination_Airport: DataTypes.STRING,
     Ticket_Date: DataTypes.DATE,
-    Schedule_id: DataTypes.INTEGER
+    schedule_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Booking',
