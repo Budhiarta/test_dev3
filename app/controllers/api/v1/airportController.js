@@ -14,10 +14,12 @@ module.exports={
     },
     async showAirportList(req,res){
         try{
-            const airport = await airportService.ListAirport()
-            res.status(201).json({
-                status:"berhasil",
-                data : airport
+            await airportService.ListAirport()
+            .then((airport)=>{
+                res.status(200).json({
+                    status: "OK",
+                    data: airport
+                })
             })
         }catch(err){
             throw err
