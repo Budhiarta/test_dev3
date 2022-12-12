@@ -14,7 +14,7 @@ module.exports = {
      * }], {});
     */
 
-    return queryInterface.bulkInsert('Airport_List', [{
+    return queryInterface.bulkInsert('Airport_Lists', [{
       Airport_Code:'CGK',
       Airport_Name:'Soekarno-Hatta International Airport',
       City:'Jakarta',
