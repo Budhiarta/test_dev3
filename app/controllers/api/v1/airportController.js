@@ -14,7 +14,7 @@ module.exports={
     },
     async showAirportList(req,res){
         try{
-            await airportService.ListAirport()
+            const airport = await airportService.ListAirport()
             res.status(201).json({
                 status:"berhasil",
                 data : airport
