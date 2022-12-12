@@ -12,17 +12,17 @@ module.exports={
             throw err
         }
     },
-    async showAirportList(req,res){
+    async ShowAirportList(req,res){
         try{
             await airportService.ListAirport()
-            .then((airport)=>{
+            .then((data)=>{
                 res.status(200).json({
                     status: "OK",
-                    data: airport
+                    data: data
                 })
             })
         }catch(err){
             throw err
         }
-    }
+    },
 }
