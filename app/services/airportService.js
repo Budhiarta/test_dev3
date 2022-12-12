@@ -5,8 +5,8 @@ module.exports={
         const airport = airportRepository.createAirport()
         return{airport}
     },
-    ListAirport(){
-        const airport = airportRepository.listAirport()
+    async ListAirport(){
+        const airport = await airportRepository.listAirport()
         return{airport}
     }
 }
