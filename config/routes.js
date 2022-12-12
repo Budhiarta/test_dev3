@@ -36,6 +36,8 @@ apiRouter.post('/booking-ticket', controllers.api.v1.bookingController.addBookin
 apiRouter.post('/add-ticket', controllers.api.v1.ticketController.CreateTicket)
 apiRouter.get('/ticket', controllers.api.v1.ticketController.DisplayTicket)
 apiRouter.get('/history', controllers.api.v1.bookingController.DisplayBooking)
+apiRouter.post('/airport', controllers.api.v1.airportController.AddAirportList)
+apiRouter.get('/get-airport', controllers.api.v1.airportController.showAirportList)
 
 //yang bisa diakses Admin//
 apiRouter.get('/user', controllers.api.v1.authController.validationAdmin, controllers.api.v1.authController.showUsers)

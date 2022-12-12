@@ -6,6 +6,17 @@ module.exports={
             const add = await airportService.CreateAirport(req)
             res.status(200).json({
                 status:"Berhasil",
+                data : add
+            })
+        }catch(err){
+            throw err
+        }
+    },
+    async showAirportList(req,res){
+        try{
+            await airportService.ListAirport()
+            res.status(201).json({
+                status:"berhasil",
                 data : airport
             })
         }catch(err){
