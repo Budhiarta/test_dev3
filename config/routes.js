@@ -31,7 +31,7 @@ apiRouter.get("/api/v1/whoami",
 apiRouter.get('/user/:id', controllers.api.v1.authController.show)
 
 //yang bisa diakses user//
-apiRouter.get('/search-ticket', controllers.api.v1.schedController.filterSchedule),
+apiRouter.post('/search-ticket', controllers.api.v1.schedController.filterSchedule),
 apiRouter.post('/booking-ticket', controllers.api.v1.bookingController.addBooking)
 apiRouter.post('/add-ticket', controllers.api.v1.ticketController.CreateTicket)
 apiRouter.get('/ticket', controllers.api.v1.ticketController.DisplayTicket)
