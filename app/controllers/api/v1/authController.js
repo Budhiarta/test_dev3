@@ -112,12 +112,16 @@ module.exports = {
             const Phone_Number = '';
             const user = await userService.create({Name, Encrypted_Password, Role, Email, Foto, Address, Phone_Number});
             res.status(201).json({
-                id: user.id,
-                Name: user.Name,
-                Email: user.Email,
-                Role: user.Role,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt
+                status: "SUCCESS",
+                message: "Akun Berhasil Ditambahkan",
+                data: {
+                    id: user.id,
+                    Name: user.Name,
+                    Email: user.Email,
+                    Role: user.Role,
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt
+                }
             });
         }catch(err){
             res.status(401).json({
