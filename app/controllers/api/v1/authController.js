@@ -101,30 +101,59 @@ module.exports = {
         }
     },
 
-    async RegisterUser(req, res){
+    async CheckAvailableEmail(req, res, next){
         try{
-            const Name = req.body.name;
-            const Email = req.body.email;
-            const Role = "Member";
-            const Encrypted_Password = await encryptPassword(req.body.password);
-            const Foto = 'default.jpg';
-            const Address = '';
-            const Phone_Number = '';
-            const user = await userService.create({Name, Encrypted_Password, Role, Email, Foto, Address, Phone_Number});
-            res.status(201).json({
-                status: "SUCCESS",
-                message: "Akun Berhasil Ditambahkan",
-                data: {
-                    id: user.id,
-                    Name: user.Name,
-                    Email: user.Email,
-                    Role: user.Role,
-                    createdAt: user.createdAt,
-                    updatedAt: user.updatedAt
+            const listUser = await userService.findAll()
+            for(i in listUser){
+                if(listUser[i].Email === req.body.email){
+                    return res.status(400).json({
+                        status: "FAIL",
+                        message: "Email Telah Terdaftar!"
+                    })
                 }
-            });
+            }
+            next();
+
         }catch(err){
             res.status(401).json({
+                status: "FAIL",
+                message: err.message
+            })
+        }
+    },
+
+    async RegisterUser(req, res){
+        try{
+            if(req.body.email || req.body.name || req.body.password){
+                const Name = req.body.name;
+                const Email = req.body.email;
+                const Role = "Member";
+                const Encrypted_Password = await encryptPassword(req.body.password);
+                const Foto = 'default.jpg';
+                const Address = '';
+                const Phone_Number = '';
+                const user = await userService.create({Name, Encrypted_Password, Role, Email, Foto, Address, Phone_Number});
+                res.status(201).json({
+                    status: "SUCCESS",
+                    message: "Akun Berhasil Ditambahkan",
+                    data: {
+                        id: user.id,
+                        Name: user.Name,
+                        Email: user.Email,
+                        Role: user.Role,
+                        createdAt: user.createdAt,
+                        updatedAt: user.updatedAt
+                    }
+                });
+            }else{
+                res.status(400).json({
+                    status: "FAIL",
+                    message: "Terdapat Form Yang Kosong!"
+                })
+            }
+        }catch(err){
+            res.status(401).json({
+                status: "FAIL",
                 message: err.message
             })
         }

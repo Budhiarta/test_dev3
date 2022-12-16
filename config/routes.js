@@ -3,6 +3,7 @@ const controllers = require("../app/controllers");
 const apiRouter = express.Router();
 const multer = require('multer');
 const path = require('path');
+const cors = require('cors');
 
 const uploadDirectory = path.join(__dirname, "../uploads")
 
@@ -19,9 +20,10 @@ const storage = multer.diskStorage({
 
 
 apiRouter.use(express.json());
+apiRouter.use(cors());
 
 //Umum access
-apiRouter.post('/register', controllers.api.v1.authController.RegisterUser)
+apiRouter.post('/register', controllers.api.v1.authController.CheckAvailableEmail, controllers.api.v1.authController.RegisterUser)
 apiRouter.post('/login', controllers.api.v1.authController.login)
 apiRouter.put('/user/:id/update', multer({storage:storage}).single("photo_profile"), controllers.api.v1.authController.updateUser)
 apiRouter.get("/api/v1/whoami",
