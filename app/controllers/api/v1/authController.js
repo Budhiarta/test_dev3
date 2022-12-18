@@ -35,7 +35,7 @@ function createToken(payload) {
 
 module.exports = {
     async login(req, res) {
-        const Email = req.body.email.toLowerCase();
+        const Email = req.body.email.toLocaleLowerCase();
         const password = req.body.password;
 
         const user = await userService.findByEmail(Email)
